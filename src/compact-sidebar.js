@@ -1,6 +1,6 @@
 javascript: (function () {
   const id = 'cscss'; /* compact sidebar cascading stylesheet */
-  const url = 'https://bookmarklets.local/src/compact-sidebar.css';
+  const url = '{url}/src/compact-sidebar.css';
 
   let link = document.getElementById(id);
   if (link === null) {

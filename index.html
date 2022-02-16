@@ -17,11 +17,14 @@
       for (name of Object.keys(bms)) {
         fetch(`./${bms[name]}`)
           .then(resp => resp.text())
-          .then(href => {
+          .then(tpl => {
             li = document.createElement('li');
             a = document.createElement('a');
             a.innerHTML = `Teyvat Interactive Map | ${name}`;
-            a.href = href;
+            a.href = tpl.replace(
+              '{url}',
+              window.location.toString().replace(/\/$/, '')
+            );
             li.appendChild(a);
             ul.appendChild(li);
           })
