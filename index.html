@@ -2,29 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>Teyvat Interactive Map Bookmarklets</title>
+    <link rel="icon" href="data:,">
     <!-- TODO: inline empty favicon -->
+
+    <style>
+      * { box-sizing: border-box; }
+      :root { font-size: 62.5%; }
+      html, body, h1 {  margin: 0; }
+      body { font-family: sans-serif; font-size: 1.5rem; padding: 1rem; }
+    </style>
   </head>
   <body>
+    <h1>Teyvat Interactive Map Bookmarklets</h1>
     <ul id="bookmarklets"></ul>
 
     <script>
-      // bookmarklet name => relative path
-      const bms = {
+      // function name => relative path
+      const fns = {
         'Compact Sidebar': 'src/compact-sidebar.js',
       };
 
       const ul = document.getElementById('bookmarklets');
-      for (name of Object.keys(bms)) {
-        fetch(`./${bms[name]}`)
+      for (name of Object.keys(fns)) {
+        fetch(`./${fns[name]}`)
           .then(resp => resp.text())
           .then(tpl => {
             li = document.createElement('li');
             a = document.createElement('a');
-            a.innerHTML = `Teyvat Interactive Map | ${name}`;
-            a.href = tpl.replace(
-              '{url}',
-              window.location.toString().replace(/\/$/, '')
-            );
+            a.textContent = `Teyvat Interactive Map | ${name}`;
+            // TODO: also remove comments
+            a.href = tpl
+              .replace('{url}', window.location.toString().replace(/\/$/, ''))
+              .replace(/\r?\n\s*/g, '');
             li.appendChild(a);
             ul.appendChild(li);
           })
