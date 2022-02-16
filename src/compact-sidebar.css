@@ -26,8 +26,11 @@
   margin-bottom: .2rem;
 }
 /* fix pin menu buttons */
+.map-layer-control .layer-control__panel-list > ul > li {
+  padding: 0 .1rem;
+}
 .map-layer-control .layer-control__panel-list > ul > li:last-child {
-  padding: .13rem 0;
+  padding: .13rem .1rem;
 }
 /* switch two-column lists to single-column */
 .layer-control__group .layer-control__list .layer-control__item {
