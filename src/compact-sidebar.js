@@ -1,7 +1,7 @@
 javascript: (function () {
-  const id = 'cscss'; /* compact sidebar cascading stylesheet */
+  /* compact sidebar cascading stylesheet */
+  const id = 'cscss';
   const url = '{url}/src/compact-sidebar.css';
-
   let link = document.getElementById(id);
   if (link === null) {
     link = document.createElement('link');
