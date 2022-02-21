@@ -29,18 +29,18 @@
     <h1>Teyvat Interactive Map Bookmarklets</h1>
     <ul class="bookmarklets">
       <li>
-        <a class="fn" data-path="src/compact-sidebar.js">Compact Sidebar</a>
+        <a class="fn" data-path="src/compact-sidebar">Compact Sidebar</a>
         <div class="desc">A more compact sidebar.</div>
       </li>
       <li>
-        <a class="fn" data-path="src/collapse-resources.js">Collapse Resources</a>
+        <a class="fn" data-path="src/collapse-resources">Collapse Resources</a>
         <div class="desc">
           <span class="badge wip">WIP</span>
           Automatically collapse non-collectible resources in the sidebar.
         </div>
       </li>
       <li>
-        <a class="fn" data-path="src/hide-completed.js">Hide Completed</a>
+        <a class="fn" data-path="src/hide-completed">Hide Completed</a>
         <div class="desc">
           <span class="badge wip">WIP</span>
           Remove completed options from the sidebar and their pins from the map.
@@ -51,7 +51,7 @@
     <script>
       document.querySelectorAll('.bookmarklets .fn')
         .forEach(fn => {
-          fetch(`./${fn.dataset.path}`)
+          fetch(`./${fn.dataset.path}/main.js`)
             .then(resp => resp.text())
             .then(tpl => {
               fn.href = tpl
