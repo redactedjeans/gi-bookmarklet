@@ -11,59 +11,88 @@
       :root { font-size: 62.5%; }
       html, body, h1 { margin: 0; }
       body { font-family: sans-serif; font-size: 1.5rem; padding: 1rem; }
-      .bookmarklets > li { margin-bottom: 1rem; }
-      .bookmarklets .desc { font-style: italic; color: #444; line-height: 3rem; }
+      ul.options { list-style: none; padding-left: 1.5rem; }
+      ul.options > li { margin-bottom: 1rem; }
+      .options .desc { font-style: italic; color: #444; line-height: 3rem; }
       .badge {
         font-style: normal;
         font-weight: bold;
         font-size: 75%;
+        line-height: normal;
         color: var(--color);
         border-radius: 1rem;
         border: 2px solid var(--color);
         padding: 0 .3rem;
       }
-      .badge.wip { --color: #922; }
+      .badge.-wip { --color: #922; }
     </style>
   </head>
   <body>
     <h1>Teyvat Interactive Map Bookmarklets</h1>
-    <ul class="bookmarklets">
+    <ul class="options">
       <li>
-        <a class="fn" data-path="src/compact-sidebar">Compact Sidebar</a>
-        <div class="desc">
-          <span class="badge wip">WIP</span>
-          Makes the sidebar take up less horizontal space.
+        <label>
+          <input type="checkbox" aria-describedby="cs-desc" data-path="src/compact-sidebar">
+          Compact Sidebar
+        </label>
+        <div id="cs-desc" class="desc">
+          <span class="badge -wip">WIP</span>
+          Makes the sidebar occupy less horizontal space.
         </div>
       </li>
       <li>
-        <a class="fn" data-path="src/collapse-resources">Collapse Resources</a>
-        <div class="desc">
-          <span class="badge wip">WIP</span>
+        <label>
+          <input type="checkbox" aria-describedby="cr-desc" data-path="src/collapse-resources">
+          Collapse Resources
+        </label>
+        <div id="cr-desc" class="desc">
+          <span class="badge -wip">WIP</span>
           Automatically collapses non-collectible resources in the sidebar.
         </div>
       </li>
       <li>
-        <a class="fn" data-path="src/hide-completed">Hide Completed</a>
+        <label>
+          <input type="checkbox" aria-describedby="hc-desc" data-path="src/hide-completed">
+          Hide Completed
+        </label>
         <div class="desc">
-          <span class="badge wip">WIP</span>
+          <span class="badge -wip">WIP</span>
           Removes completed options from the sidebar and their pins from the map.
         </div>
       </li>
     </ul>
+    <div>
+      Bookmark the following link:
+      <a id="bookmarklet" href="#">Teyvat Interactive Map Bookmarklet</a>
+    </div>
 
     <script>
-      document.querySelectorAll('.bookmarklets .fn')
+      // apply listener to concat bookmarklet functions
+      // FIXME: assumes the code has been fetched (otherwise this won't work)
+      document.querySelector('.options')
+        .addEventListener('change', e => {
+          const code = [...document.querySelectorAll('.options input:checked')]
+            .map(chk => chk.dataset.code)
+            .join('');
+          document.getElementById('bookmarklet').href = `javascript:(function(){${code}})();`;
+        });
+
+      // get the code for each bookmarklet/function
+      document.querySelectorAll('.options [data-path]')
         .forEach(fn => {
-          fetch(`./${fn.dataset.path}/main.js`)
+          // uncheck on load to avoid issues where link href doesn't match checked functions
+          fn.checked = false;
+          fetch(`./${fn.dataset.path}/main.js?v=${Date.now()}`)
             .then(resp => resp.text())
             .then(tpl => {
-              fn.href = tpl
+              fn.dataset.code = tpl
                 // replace "static" values
-                .replace('{url}', window.location.toString().replace(/\/$/, ''))
+                .replace('{url}', window.location.toString().replace(/\/#?$/, ''))
                 // TODO: replace dynamic values (?)
-                // TODO: remove comments
                 // remove newlines
-                .replace(/\r?\n\s*/g, '');
+                .replace(/\r?\n\s*/g, '')
+                // remove comments (since there are no newlines this should work? eh)
+                .replace(/\/\*.*?\*\//g, '')
             })
             .catch(err => console.error(err));
         });
