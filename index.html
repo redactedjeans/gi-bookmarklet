@@ -9,37 +9,41 @@
     <style>
       * { box-sizing: border-box; }
       :root { font-size: 62.5%; }
-      html, body, h1 {  margin: 0; }
+      html, body, h1 { margin: 0; }
       body { font-family: sans-serif; font-size: 1.5rem; padding: 1rem; }
+      .bookmarklets > li { margin-bottom: 1rem; }
+      .bookmarklets .desc { font-style: italic; color: #444; padding-top: .5rem; }
     </style>
   </head>
   <body>
     <h1>Teyvat Interactive Map Bookmarklets</h1>
-    <ul id="bookmarklets"></ul>
+    <ul class="bookmarklets">
+      <li>
+        <a class="fn" data-path="src/compact-sidebar.js">Compact Sidebar</a>
+        <div class="desc">A more compact sidebar.</div>
+      </li>
+      <li>
+        <a class="fn" data-path="src/hide-completed.js">Hide Completed</a>
+        <div class="desc">(WIP) Remove completed options from the sidebar and their pins from the map.</div>
+      </li>
+    </ul>
 
     <script>
-      // function name => relative path
-      const fns = {
-        'Compact Sidebar': 'src/compact-sidebar.js',
-      };
-
-      const ul = document.getElementById('bookmarklets');
-      for (name of Object.keys(fns)) {
-        fetch(`./${fns[name]}`)
-          .then(resp => resp.text())
-          .then(tpl => {
-            li = document.createElement('li');
-            a = document.createElement('a');
-            a.textContent = `Teyvat Interactive Map | ${name}`;
-            // TODO: also remove comments
-            a.href = tpl
-              .replace('{url}', window.location.toString().replace(/\/$/, ''))
-              .replace(/\r?\n\s*/g, '');
-            li.appendChild(a);
-            ul.appendChild(li);
-          })
-          .catch(err => console.error(err));
-      }
+      document.querySelectorAll('.bookmarklets .fn')
+        .forEach(fn => {
+          fetch(`./${fn.dataset.path}`)
+            .then(resp => resp.text())
+            .then(tpl => {
+              fn.href = tpl
+                // replace "static" values
+                .replace('{url}', window.location.toString().replace(/\/$/, ''))
+                // TODO: replace dynamic values (?)
+                // TODO: remove comments
+                // remove newlines
+                .replace(/\r?\n\s*/g, '');
+            })
+            .catch(err => console.error(err));
+        });
     </script>
   </body>
 </html>
