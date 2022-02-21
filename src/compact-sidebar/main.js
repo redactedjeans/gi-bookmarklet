@@ -1,6 +1,6 @@
 javascript: (function () {
-  /* compact sidebar cascading stylesheet */
-  const id = 'cscss';
+  /* TODO: add option to inline CSS so it can't be changed remotely? */
+  const id = 'cscss'; /* Compact Sidebar CSS */
   const url = '{url}/src/compact-sidebar/styles.css';
   let link = document.getElementById(id);
   if (link === null) {

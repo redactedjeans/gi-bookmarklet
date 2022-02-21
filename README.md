@@ -1,7 +1,11 @@
 # Teyvat Interactive Map Bookmarklets
 
-## Usage
-For the sake of making it easy to bookmark the scripts, I hacked together an HTML page that
-dynamically generates `a` tags for each script. This needs to be served by a local server since
-it makes use of `fetch` (which fails on the `file://` protocol); the simplest way to do this on any
-computer that has python is to run `python -m http.server` at the project's root directory.
+## Local Development
+Since the `compact-sidebar` bookmarklet makes a `fetch` request to the stylesheet from an HTTPS
+page (the map), it also needs to be served over HTTPS. The simplest way to do this on localhost is
+to use [mkcert](https://github.com/FiloSottile/mkcert) and a proxy server such as nginx.
+
+If not serving the stylesheet from localhost (e.g. by using the (not yet implemented) "inline css"
+option), you still need to server the index page from a server, since `fetch` fails on the
+`file://` protocol. The simplest way to do when HTTPS is not required is to run
+`python -m http.server` from the project's root directory.
