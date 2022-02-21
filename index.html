@@ -12,7 +12,17 @@
       html, body, h1 { margin: 0; }
       body { font-family: sans-serif; font-size: 1.5rem; padding: 1rem; }
       .bookmarklets > li { margin-bottom: 1rem; }
-      .bookmarklets .desc { font-style: italic; color: #444; padding-top: .5rem; }
+      .bookmarklets .desc { font-style: italic; color: #444; line-height: 3rem; }
+      .badge {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 75%;
+        color: var(--color);
+        border-radius: 1rem;
+        border: 2px solid var(--color);
+        padding: 0 .3rem;
+      }
+      .badge.wip { --color: #922; }
     </style>
   </head>
   <body>
@@ -23,8 +33,18 @@
         <div class="desc">A more compact sidebar.</div>
       </li>
       <li>
+        <a class="fn" data-path="src/collapse-resources.js">Collapse Resources</a>
+        <div class="desc">
+          <span class="badge wip">WIP</span>
+          Automatically collapse non-collectible resources in the sidebar.
+        </div>
+      </li>
+      <li>
         <a class="fn" data-path="src/hide-completed.js">Hide Completed</a>
-        <div class="desc">(WIP) Remove completed options from the sidebar and their pins from the map.</div>
+        <div class="desc">
+          <span class="badge wip">WIP</span>
+          Remove completed options from the sidebar and their pins from the map.
+        </div>
       </li>
     </ul>
 
