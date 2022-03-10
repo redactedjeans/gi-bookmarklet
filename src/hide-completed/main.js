@@ -5,6 +5,5 @@ document.querySelectorAll('.layer-control__list .layer-control__item')
       .querySelector('span > span')
       .textContent.split('/')
       .map(n => parseInt(n));
-    if (nums.length > 1 && nums[0] === nums[1]) node.remove();
-    /* TODO: remove pins from map! */
+    if (nums.length > 1 && nums[0] === nums[1]) node.style.display = 'none';
   });
