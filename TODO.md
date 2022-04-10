@@ -16,11 +16,13 @@ These are in no particular order.
 ## CSS Tweaks
 - [ ] center the map
   - since the sidebar floats (we can see behind it) i can't use the same hack i had before
+  - it's also less of an issue than it was before because they changed the min zoom
 - [ ] add option to inline css in the function so it can't be changed remotely
 
 ## Collapse Resources
 - [x] load css fix to add arrow indicating section state (open/closed)
-- [x] open/close sections based on a preset (customizeable or not)
+- [x] open/close sections based on a preset
+- [ ] make preset customizeable
 - [ ] make this work for keyboard users as well (currently only responsive to `click` event)
   - just checked and afaict the whole map just,,, does not work with keyboards, so
 - [ ] load css to add focus, hover, active styling to section titles
@@ -29,6 +31,11 @@ These are in no particular order.
 - [ ] hide empty sections (all items are completed)
   - the naive solution breaks when a region is selected because e.g. all oculi in Liyue might be
   completed while there remain some in other regions
+- [ ] hide pins of completed sections in the map
+  - this might not be easily feasible, since all pins are rendered on the same `canvas` element,
+  therefore we can't just hide one element/layer
+  - an alternative might be to just deselect items when we hide them (if checked) to make sure they
+  don't linger on the map
 
 ## New Functions
 - [ ] load a pin preset
