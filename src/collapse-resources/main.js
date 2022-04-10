@@ -2,9 +2,10 @@
 /* TODO: add event listeners for keyboard users as well */
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const collapse = [
-  /[Pp]ins?/, /^Waypoints$/, /^Enemies/, /^Guide$/,
+  /\s+[Pp]ins?/, /^Waypoints$/, /^Enemies/, /^Guide$/,
   /^Local Specialties$/, /^Animals$/, /^Fishing$/, /^Ores$/, /^Wood$/,
-  /^Materials$/, /* spincrystals and archaic stone are in materials ;( */
+  /* these three all have some collectibles and some non-collectibles; hide by default */
+  /^Materials$/, /^Investigation$/, /^NPC$/,
 ];
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
