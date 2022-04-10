@@ -9,13 +9,12 @@ const collapse = [
 ];
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
-    /* clone the section title to remove any previous event listeners */
-    /* FIXME: this removes event listeners on the pin sections' actions */
-    const old = section.querySelector('.filter-panel__labels-title');
-    const title = old.cloneNode(true);
-    section.replaceChild(title, old);
+    const title = section.querySelector('.filter-panel__labels-title');
     /* bind the event listener to toggle display value */
-    title.addEventListener('click', _ => {
+    title.onclick = (e => {
+      /* check whether clicking on a pin action and stop if so */
+      if ([...e.target.classList].includes('filter-panel__labels-title-action')) return;
+      /* otherwise toggle section */
       const content = section.querySelector('.filter-panel__labels-content');
       const show = getComputedStyle(content).display === 'none';
       if (show) {
@@ -26,8 +25,9 @@ document.querySelectorAll('.filter-panel__labels-item')
         section.dataset.collapsed = true;
       }
     });
-    /* if need be, click on it to collapse */
-    if (collapse.some(re => re.test(title.textContent)) && !section.dataset.collapsed) {
+    /* if need be, click on it to toggle */
+    const preset = collapse.some(re => re.test(title.textContent));
+    if ((preset && !section.dataset.collapsed) || (!preset && section.dataset.collapsed)) {
       title.click();
     }
   });

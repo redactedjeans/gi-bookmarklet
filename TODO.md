@@ -4,6 +4,9 @@ These are in no particular order.
 ## Index Page
 - [ ] make sure the functions have been fetched before the link is made bookmarkeable
 - [ ] the `fetch` requests don't reject on 404 or 500; this isn't handled properly
+  - maybe: checkboxes default as disabled (with loader?), are enabled on successful `fetch` (and
+  if unsuccessful we display some text beside it or smth)
+  - if done properly this could also account for the first item above
 - [ ] implement "dynamic" replacement of values to allow for customization
 - [x] automatically prefix/namespace variables (e.g. all functions want to use `const id = ...`)
   - it turns out this is very easy to fix by wrapping code in a block statement
@@ -11,7 +14,8 @@ These are in no particular order.
 ## All functions
 - [ ] defer execution until map has rendered (using `MutationObserver`?)
   - strictly speaking this isn't necessary to CSS Tweaks, but doesn't hurt much
-- [ ] add a shared utility for injecting css (inline or link) 
+- [ ] add a shared utility for injecting css (inline or link)
+- [ ] bind the bookmarklet code to the "reset" button maybe? idk if this is a good idea
 
 ## CSS Tweaks
 - [ ] center the map
@@ -27,11 +31,8 @@ These are in no particular order.
   - just checked and afaict the whole map just,,, does not work with keyboards, so
 - [x] load css to add focus, hover, active styling to section titles
   - no active styling to match other interactive elements on the map
-- [ ] this function breaks the action button in the self-created and in-game pin sections
-  - this is due to the use of `cloneNode()` to avoid duplicate event listeners on the title
-  - instead, using the `onclick` limits to number of registerd listeners to one, as a new event
-  listener overwrites the previous one; this would preserve the children's events as we wouldn't
-  have to clone the node
+- [x] this function breaks the action buttons in the self-created and in-game pin sections
+- [ ] the hover style on titles shouldn't show up when hovering over an action button
 
 ## Hide Completed
 - [ ] hide empty sections (all items are completed)
@@ -44,7 +45,7 @@ These are in no particular order.
   don't linger on the map
 
 ## Load Preset
-- [ ] make preset customizeable (c.f. collapse resources)
+- [ ] make preset customizeable (_c.f._ collapse resources)
 
 ## New Functions
 - [ ] show/hide all pins in a section
