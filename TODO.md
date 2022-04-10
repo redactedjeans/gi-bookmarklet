@@ -25,7 +25,8 @@ These are in no particular order.
 - [ ] make preset customizeable
 - [ ] make this work for keyboard users as well (currently only responsive to `click` event)
   - just checked and afaict the whole map just,,, does not work with keyboards, so
-- [ ] load css to add focus, hover, active styling to section titles
+- [x] load css to add focus, hover, active styling to section titles
+  - no active styling to match other interactive elements on the map
 
 ## Hide Completed
 - [ ] hide empty sections (all items are completed)

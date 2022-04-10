@@ -10,6 +10,7 @@ const collapse = [
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
     /* clone the section title to remove any previous event listeners */
+    /* FIXME: this removes event listeners on the pin sections' actions */
     const old = section.querySelector('.filter-panel__labels-title');
     const title = old.cloneNode(true);
     section.replaceChild(title, old);
@@ -41,8 +42,10 @@ if (style === null) {
 /* TODO: add hover & active styling to css (mouse + keyboard) */
 /* FIXME: this is getting unwieldy; can we load from a file instead? */
 style.innerHTML = `
-.filter-panel__labels-item .filter-panel__labels-title {
-  cursor: pointer;
+.filter-panel__labels-item .filter-panel__labels-title { cursor: pointer; }\n
+.filter-panel__labels-item .filter-panel__labels-title:hover,
+.filter-panel__labels-item .filter-panel__labels-title:focus {
+  text-decoration: underline;
 }\n
 .filter-panel__labels-item .filter-panel__labels-title::before {
   content: '−';
@@ -51,7 +54,5 @@ style.innerHTML = `
   font-size: 150%;
   line-height: .14rem;
 }\n
-.filter-panel__labels-item[data-collapsed] .filter-panel__labels-title::before {
-  content: '+';
-}
+.filter-panel__labels-item[data-collapsed] .filter-panel__labels-title::before { content: '+'; }
 `;
