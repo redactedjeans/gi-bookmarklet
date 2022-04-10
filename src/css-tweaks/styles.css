@@ -1,0 +1,7 @@
+/* hide qr code & move zoom control */
+.mhy-game-gis .bbs-qr {
+  display: none;
+}
+.mhy-map .leaflet-control-zoomslider {
+  transform: none;
+}

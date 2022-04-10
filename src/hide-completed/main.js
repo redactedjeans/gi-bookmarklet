@@ -8,11 +8,12 @@ document.querySelectorAll('.filter-item')
     if (nums && nums.length > 1 && nums[0] === nums[1]) node.style.display = 'none';
   });
 /* inject small css fix */
-const id = 'hide-completed-css-fix';
-let style = document.getElementById(id);
+/* FIXME: should this be part of css-tweaks or remain a standalone fix? */
+const hc_id = 'hide-completed-css-fix';
+let style = document.getElementById(hc_id);
 if (style === null) {
   style = document.createElement('style');
-  style.id = id;
+  style.id = hc_id;
   document.getElementsByTagName('head')[0].appendChild(style);
 }
 style.innerHTML = `

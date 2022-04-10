@@ -31,11 +31,19 @@
     <ul class="options">
       <li class="wip">
         <label>
+          <input type="checkbox" aria-describedby="cf-desc" data-path="src/css-tweaks">
+          CSS Tweaks
+        </label>
+        <div id="cf-desc" class="desc">
+          Applies various CSS fixes/tweaks to the map.
+        </div>
+      </li>
+      <li class="wip">
+        <label>
           <input type="checkbox" aria-describedby="hc-desc" data-path="src/hide-completed">
           Hide Completed
         </label>
         <div id="hc-desc" class="desc">
-          <!-- <span class="badge -wip">WIP</span> -->
           Removes completed options from the sidebar.
         </div>
         <div class="issues">Known issues: does not hide pins from the map</div>
@@ -68,12 +76,14 @@
             .then(tpl => {
               fn.dataset.code = tpl
                 // replace "static" values
+                .replace('{src}', fn.dataset.path)
                 .replace('{url}', window.location.toString().replace(/\/#?$/, ''))
                 // TODO: replace dynamic values (?)
                 // remove newlines
                 .replace(/\r?\n\s*/g, '')
                 // remove comments (since there are no newlines this should work? eh)
                 .replace(/\/\*.*?\*\//g, '');
+                // TODO: can we detect variable declarations (const, let, etc.) and namespace them?
               console.log(`fetched ${fn.labels[0].innerText.trim()} bookmarklet`);
             })
             .catch(err => console.error(err));
