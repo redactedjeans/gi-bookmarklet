@@ -24,3 +24,6 @@ These are in no particular order.
 - [ ] load css to add focus, hover, active styling to section titles
 
 ## Hide Completed
+- [ ] hide empty sections (all items are completed)
+  - the naive solution breaks when a region is selected because e.g. all oculi in liyue might be
+  completed while there remain some in other regions
