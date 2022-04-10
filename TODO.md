@@ -17,7 +17,7 @@ These are in no particular order.
 - [ ] add option to inline css in the function so it can't be changed remotely
 
 ## Collapse Resources
-- [ ] load css fix to add arrow indicating section state (open/closed)
+- [x] load css fix to add arrow indicating section state (open/closed)
 - [ ] open/close sections based on a preset (customizeable or not)
 - [ ] make this work for keyboard users as well (currently only responsive to `click` event)
   - just checked and afaict the whole map just,,, does not work with keyboards, so

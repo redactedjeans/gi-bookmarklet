@@ -10,13 +10,13 @@ document.querySelectorAll('.filter-item')
 /* inject small css fix */
 /* FIXME: should this be part of css-tweaks or remain a standalone fix? */
 const hc_id = 'hide-completed-css-fix';
-let style = document.getElementById(hc_id);
-if (style === null) {
-  style = document.createElement('style');
-  style.id = hc_id;
-  document.getElementsByTagName('head')[0].appendChild(style);
+let hc_style = document.getElementById(hc_id);
+if (hc_style === null) {
+  hc_style = document.createElement('style');
+  hc_style.id = hc_id;
+  document.getElementsByTagName('head')[0].appendChild(hc_style);
 }
-style.innerHTML = `
+hc_style.innerHTML = `
 .filter-panel__labels-content { gap: .15rem .1rem; margin-bottom: .15rem; }\n
 .filter-panel__labels-filter-item { margin: 0 !important; }
 `;

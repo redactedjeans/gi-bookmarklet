@@ -14,6 +14,31 @@ document.querySelectorAll('.filter-panel__labels-item')
     /* bind the event listener to toggle display value */
     title.addEventListener('click', _ => {
       const content = section.querySelector('.filter-panel__labels-content');
-      content.style.display = (getComputedStyle(content).display === 'none') ? null : 'none';
+      const show = getComputedStyle(content).display === 'none';
+      content.style.display = show ? null : 'none';
+      section.dataset.collapsed = !show;
     });
   });
+/* inject small css fixes */
+const cr_id = 'collapse-resources-css-fix';
+let cr_style = document.getElementById(cr_id);
+if (cr_style === null) {
+  cr_style = document.createElement('style');
+  cr_style.id = cr_id;
+  document.getElementsByTagName('head')[0].appendChild(cr_style);
+}
+cr_style.innerHTML = `
+.filter-panel__labels-item .filter-panel__labels-title {
+  cursor: pointer;
+}\n
+.filter-panel__labels-item .filter-panel__labels-title::before {
+  content: '−';
+  float: left;
+  margin-right: .1rem;
+  font-size: 150%;
+  line-height: .14rem;
+}\n
+.filter-panel__labels-item[data-collapsed=true] .filter-panel__labels-title::before {
+  content: '+';
+}
+`;
