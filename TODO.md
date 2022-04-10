@@ -27,6 +27,11 @@ These are in no particular order.
   - just checked and afaict the whole map just,,, does not work with keyboards, so
 - [x] load css to add focus, hover, active styling to section titles
   - no active styling to match other interactive elements on the map
+- [ ] this function breaks the action button in the self-created and in-game pin sections
+  - this is due to the use of `cloneNode()` to avoid duplicate event listeners on the title
+  - instead, using the `onclick` limits to number of registerd listeners to one, as a new event
+  listener overwrites the previous one; this would preserve the children's events as we wouldn't
+  have to clone the node
 
 ## Hide Completed
 - [ ] hide empty sections (all items are completed)
@@ -42,10 +47,6 @@ These are in no particular order.
 - [ ] make preset customizeable (c.f. collapse resources)
 
 ## New Functions
-- [ ] load a pin preset
-  - this could be bundled into collapse resources, but might make sense on its own too
-  - technically this is already handled by the pins in the url when bookmarking, but switching
-  to/from the Chasm or Enkanomiya doesn't work very well
 - [ ] show/hide all pins in a section
   - need to do this without mutating the DOM, but also can't bind event listeners to
   pseudo-elements
