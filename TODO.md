@@ -5,9 +5,8 @@ These are in no particular order.
 - [ ] make sure the functions have been fetched before the link is made bookmarkeable
 - [ ] the `fetch` requests don't reject on 404 or 500; this isn't handled properly
 - [ ] implement "dynamic" replacement of values to allow for customization
-- [ ] automatically prefix/namespace variables (e.g. all functions want to use `const id = ...`)
-  - this is currently manageable due to the small size of each function, but would be nice if i
-  didn't have to worry about it
+- [x] automatically prefix/namespace variables (e.g. all functions want to use `const id = ...`)
+  - it turns out this is very easy to fix by wrapping code in a block statement
 
 ## All functions
 - [ ] defer execution until map has rendered (using `MutationObserver`?)
@@ -32,7 +31,10 @@ These are in no particular order.
   completed while there remain some in other regions
 
 ## New Functions
-- [ ] a function to load a pin preset
+- [ ] load a pin preset
   - this could be bundled into collapse resources, but might make sense on its own too
   - technically this is already handled by the pins in the url when bookmarking, but switching
   to/from the Chasm or Enkanomiya doesn't work very well
+- [ ] show/hide all pins in a section
+  - need to do this without mutating the DOM, but also can't bind event listeners to
+  pseudo-elements

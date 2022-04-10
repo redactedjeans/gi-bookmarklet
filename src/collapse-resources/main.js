@@ -30,16 +30,16 @@ document.querySelectorAll('.filter-panel__labels-item')
     }
   });
 /* inject small css fixes */
-const cr_id = 'collapse-resources-css-fix';
-let cr_style = document.getElementById(cr_id);
-if (cr_style === null) {
-  cr_style = document.createElement('style');
-  cr_style.id = cr_id;
-  document.getElementsByTagName('head')[0].appendChild(cr_style);
+const id = 'collapse-resources-css-fix';
+let style = document.getElementById(id);
+if (style === null) {
+  style = document.createElement('style');
+  style.id = id;
+  document.getElementsByTagName('head')[0].appendChild(style);
 }
 /* TODO: add hover & active styling to css (mouse + keyboard) */
 /* FIXME: this is getting unwieldy; can we load from a file instead? */
-cr_style.innerHTML = `
+style.innerHTML = `
 .filter-panel__labels-item .filter-panel__labels-title {
   cursor: pointer;
 }\n

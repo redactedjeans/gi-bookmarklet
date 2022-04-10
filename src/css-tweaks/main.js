@@ -1,10 +1,10 @@
 /* TODO: add option to inline CSS so it can't be changed remotely? */
-const ct_id = 'bookmarklet-css-tweaks';
+const id = 'bookmarklet-css-tweaks';
 const url = '{url}/{src}/styles.css';
-let link = document.getElementById(ct_id);
+let link = document.getElementById(id);
 if (link === null) {
   link = document.createElement('link');
-  link.id = ct_id;
+  link.id = id;
   link.rel = 'stylesheet';
   document.getElementsByTagName('head')[0].appendChild(link);
 }

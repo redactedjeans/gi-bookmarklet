@@ -75,7 +75,8 @@
       document.querySelector('.options')
         .addEventListener('change', e => {
           const code = [...document.querySelectorAll('.options input:checked')]
-            .map(chk => chk.dataset.code)
+            // wrap each bookmarklet in a block statement to locally scope vars
+            .map(chk => `{${chk.dataset.code}}`)
             .join('');
           document.getElementById('bookmarklet').href = `javascript:(function(){${code}})();`;
         });
@@ -98,7 +99,6 @@
                 .replace(/\r?\n\s*/g, '')
                 // remove comments (since there are no newlines this should work? eh)
                 .replace(/\/\*.*?\*\//g, '');
-                // TODO: can we detect variable declarations (const, let, etc.) and namespace them?
               console.log(`fetched ${fn.labels[0].innerText.trim()} bookmarklet`);
             })
             .catch(err => console.error(err));
