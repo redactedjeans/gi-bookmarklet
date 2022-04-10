@@ -8,10 +8,11 @@
       * { box-sizing: border-box; }
       :root { font-size: 62.5%; }
       html, body, h1 { margin: 0; }
-      body { font-family: sans-serif; font-size: 1.5rem; padding: 1rem; }
-      ul.options { list-style: none; padding-left: 1.5rem; }
-      ul.options > li { margin-bottom: 1rem; }
-      ul.options > li .desc::before {
+      body { font-family: sans-serif; font-size: 1.5rem; height: 100vh; }
+      .container { display: flex; flex-direction: column; padding: 1rem; }
+      .options { list-style: none; padding-left: 1.5rem; }
+      .options .fn { margin-bottom: 1rem; }
+      .options .fn .desc::before {
         font-style: normal;
         font-weight: bold;
         font-size: 75%;
@@ -21,15 +22,17 @@
         border: 2px solid var(--color);
         padding: 0 .3rem;
       }
-      ul.options > li.wip .desc::before { content: 'WIP'; --color: #922; }
+      .options .fn.-wip .desc::before { content: 'WIP'; --color: #922; }
       .options .desc { font-style: italic; color: #444; line-height: 3rem; }
       .issues { font-size: 1.2rem; text-transform: uppercase; color: #444; }
+      .version { margin-top: auto; text-align: right; font-style: italic; }
     </style>
   </head>
-  <body>
+  <body class="container">
     <h1>Teyvat Interactive Map Bookmarklets</h1>
+
     <ul class="options">
-      <li class="wip">
+      <li class="fn -wip">
         <label>
           <input type="checkbox" aria-describedby="cf-desc" data-path="src/css-tweaks">
           CSS Tweaks
@@ -38,7 +41,7 @@
           Applies various CSS fixes/tweaks to the map.
         </div>
       </li>
-      <li class="wip">
+      <li class="fn -wip">
         <label>
           <input type="checkbox" aria-describedby="cr-desc" data-path="src/collapse-resources">
           Collapse Resources
@@ -47,7 +50,7 @@
           Allows the collapsing of resources in the sidebar.
         </div>
       </li>
-      <li class="wip">
+      <li class="fn -wip">
         <label>
           <input type="checkbox" aria-describedby="hc-desc" data-path="src/hide-completed">
           Hide Completed
@@ -62,6 +65,9 @@
       Bookmark the following link:
       <a id="bookmarklet" href="javascript:(function(){})();">Teyvat Interactive Map Bookmarklet</a>
     </div>
+    <footer class="version">
+      Last updated 2022-04-10 (v2.6)
+    </footer>
 
     <script>
       // apply listener to concat bookmarklet functions
