@@ -25,6 +25,7 @@
       .options .fn.-wip .desc::before { content: 'WIP'; --color: #922; }
       .options .desc { font-style: italic; color: #444; line-height: 3rem; }
       .issues { font-size: 1.2rem; text-transform: uppercase; color: #444; }
+      .issues::before { content: 'Known Issues: '; }
       .version { margin-top: auto; text-align: right; font-style: italic; }
     </style>
   </head>
@@ -52,13 +53,22 @@
       </li>
       <li class="fn -wip">
         <label>
+          <input type="checkbox" aria-describedby="lp-desc" data-path="src/load-preset">
+          Load Preset
+        </label>
+        <div id="lp-desc" class="desc">
+          Loads a preset pin configuration.
+        </div>
+      </li>
+      <li class="fn -wip">
+        <label>
           <input type="checkbox" aria-describedby="hc-desc" data-path="src/hide-completed">
           Hide Completed
         </label>
         <div id="hc-desc" class="desc">
           Removes completed options from the sidebar.
         </div>
-        <div class="issues">Known issues: does not hide pins from the map</div>
+        <div class="issues">Does not hide pins from the map</div>
       </li>
     </ul>
     <div>

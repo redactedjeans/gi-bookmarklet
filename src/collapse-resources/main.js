@@ -27,7 +27,7 @@ document.querySelectorAll('.filter-panel__labels-item')
       }
     });
     /* if need be, click on it to collapse */
-    if (collapse.some(r => r.test(title.textContent)) && !section.dataset.collapsed) {
+    if (collapse.some(re => re.test(title.textContent)) && !section.dataset.collapsed) {
       title.click();
     }
   });

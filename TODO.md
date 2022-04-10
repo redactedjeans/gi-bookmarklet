@@ -38,6 +38,9 @@ These are in no particular order.
   - an alternative might be to just deselect items when we hide them (if checked) to make sure they
   don't linger on the map
 
+## Load Preset
+- [ ] make preset customizeable (c.f. collapse resources)
+
 ## New Functions
 - [ ] load a pin preset
   - this could be bundled into collapse resources, but might make sense on its own too
