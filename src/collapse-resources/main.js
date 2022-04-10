@@ -16,8 +16,13 @@ document.querySelectorAll('.filter-panel__labels-item')
     title.addEventListener('click', _ => {
       const content = section.querySelector('.filter-panel__labels-content');
       const show = getComputedStyle(content).display === 'none';
-      content.style.display = show ? null : 'none';
-      section.dataset.collapsed = show ? '' : 'yes';
+      if (show) {
+        content.style.display = null;
+        delete section.dataset.collapsed;
+      } else {
+        content.style.display = 'none';
+        section.dataset.collapsed = true;
+      }
     });
     /* if need be, click on it to collapse */
     if (collapse.some(r => r.test(title.textContent)) && !section.dataset.collapsed) {
@@ -45,7 +50,7 @@ cr_style.innerHTML = `
   font-size: 150%;
   line-height: .14rem;
 }\n
-.filter-panel__labels-item[data-collapsed=true] .filter-panel__labels-title::before {
+.filter-panel__labels-item[data-collapsed] .filter-panel__labels-title::before {
   content: '+';
 }
 `;

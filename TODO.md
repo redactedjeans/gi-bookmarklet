@@ -30,3 +30,9 @@ These are in no particular order.
 - [ ] hide empty sections (all items are completed)
   - the naive solution breaks when a region is selected because e.g. all oculi in liyue might be
   completed while there remain some in other regions
+
+## New Functions
+- [ ] a function to load a pin preset
+  - this could be bundled into collapse resources, but might make sense on its own too
+  - technically this is already handled by the pins in the url hwne bookmarking, but switching
+  to/from the chasm or enkanomiya doesn't work very well
