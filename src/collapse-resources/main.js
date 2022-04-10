@@ -1,10 +1,11 @@
-/* TODO: need some way to defer this until the relevant markup has loaded (MutationObserver?) */
-/* TODO: extend this bookmarklet to automatically show/hide categories based on a preset */
-/*       (perhaps once dynamic value replacement is implemented, so the list is customiseable) */
+/* FIXME: need some way to defer this until the relevant markup has loaded (MutationObserver?) */
 /* TODO: add event listeners for keyboard users as well */
-/*        (this might require loading some custom css to style focused titles) */
-/* TODO: load some css to add hover & active styling */
-/*        also if possible (pseudo-elements?) add arrows to show state */
+/* TODO: once dynamic value replacement is implemented make this list customizeable? */
+const collapse = [
+  /[Pp]ins?/, /^Waypoints$/, /^Enemies/, /^Guide$/,
+  /^Local Specialties$/, /^Animals$/, /^Fishing$/, /^Ores$/, /^Wood$/,
+  /^Materials$/, /* spincrystals and archaic stone are in materials ;( */
+];
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
     /* clone the section title to remove any previous event listeners */
@@ -16,8 +17,12 @@ document.querySelectorAll('.filter-panel__labels-item')
       const content = section.querySelector('.filter-panel__labels-content');
       const show = getComputedStyle(content).display === 'none';
       content.style.display = show ? null : 'none';
-      section.dataset.collapsed = !show;
+      section.dataset.collapsed = show ? '' : 'yes';
     });
+    /* if need be, click on it to collapse */
+    if (collapse.some(r => r.test(title.textContent)) && !section.dataset.collapsed) {
+      title.click();
+    }
   });
 /* inject small css fixes */
 const cr_id = 'collapse-resources-css-fix';
@@ -27,6 +32,8 @@ if (cr_style === null) {
   cr_style.id = cr_id;
   document.getElementsByTagName('head')[0].appendChild(cr_style);
 }
+/* TODO: add hover & active styling to css (mouse + keyboard) */
+/* FIXME: this is getting unwieldy; can we load from a file instead? */
 cr_style.innerHTML = `
 .filter-panel__labels-item .filter-panel__labels-title {
   cursor: pointer;
