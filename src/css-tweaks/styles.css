@@ -1,3 +1,13 @@
+/* replace section title margins with padding */
+.filter-panel .filter-panel__labels-title {
+  /* margin: .14rem 0 .14rem .02rem; */
+  padding: .14rem 0;
+  margin: 0 .02rem;
+}
+.filter-panel__labels-title .filter-panel__labels-title-action {
+  top: .1rem;
+}
+
 /* hide qr code & move zoom control */
 .mhy-game-gis .bbs-qr {
   display: none;
