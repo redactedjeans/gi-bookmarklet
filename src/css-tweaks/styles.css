@@ -8,6 +8,11 @@
   top: .1rem;
 }
 
+/* hide chasm glowing purple thing */
+img.leaflet-marker-icon.leaflet-zoom-hide.leaflet-interactive {
+  display: none;
+}
+
 /* hide qr code & move zoom control */
 .mhy-game-gis .bbs-qr {
   display: none;
