@@ -11,7 +11,7 @@ These are in no particular order.
 
 ## All functions
 - [ ] defer execution until map has rendered (using `MutationObserver`?)
-  - this isn't strictly speaking necessary to CSS Tweaks, but doesn't hurt much
+  - strictly speaking this isn't necessary to CSS Tweaks, but doesn't hurt much
 - [ ] add a shared utility for injecting css (inline or link) 
 
 ## CSS Tweaks
@@ -28,11 +28,11 @@ These are in no particular order.
 
 ## Hide Completed
 - [ ] hide empty sections (all items are completed)
-  - the naive solution breaks when a region is selected because e.g. all oculi in liyue might be
+  - the naive solution breaks when a region is selected because e.g. all oculi in Liyue might be
   completed while there remain some in other regions
 
 ## New Functions
 - [ ] a function to load a pin preset
   - this could be bundled into collapse resources, but might make sense on its own too
-  - technically this is already handled by the pins in the url hwne bookmarking, but switching
-  to/from the chasm or enkanomiya doesn't work very well
+  - technically this is already handled by the pins in the url when bookmarking, but switching
+  to/from the Chasm or Enkanomiya doesn't work very well
