@@ -12,13 +12,16 @@ These are in no particular order.
 ## All functions
 - [ ] defer execution until map has rendered (using `MutationObserver`?)
   - this isn't strictly speaking necessary to CSS Tweaks, but doesn't hurt much
+- [ ] add a shared utility for injecting css (inline or link) 
 
 ## CSS Tweaks
+- [ ] center the map
+  - since the sidebar floats (we can see behind it) i can't use the same hack i had before
 - [ ] add option to inline css in the function so it can't be changed remotely
 
 ## Collapse Resources
 - [x] load css fix to add arrow indicating section state (open/closed)
-- [ ] open/close sections based on a preset (customizeable or not)
+- [x] open/close sections based on a preset (customizeable or not)
 - [ ] make this work for keyboard users as well (currently only responsive to `click` event)
   - just checked and afaict the whole map just,,, does not work with keyboards, so
 - [ ] load css to add focus, hover, active styling to section titles

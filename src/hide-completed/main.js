@@ -1,4 +1,4 @@
-/* TODO: need some way to defer this until the relevant markup has loaded (MutationObserver?) */
+/* FIXME: need some way to defer this until the relevant markup has loaded (MutationObserver?) */
 document.querySelectorAll('.filter-item')
   .forEach(node => {
     const nums = node
