@@ -1,9 +1,21 @@
-/* TODO: need some way to defer this until the relevant markup has loaded */
-document.querySelectorAll('.layer-control__list .layer-control__item')
+/* TODO: need some way to defer this until the relevant markup has loaded (MutationObserver?) */
+document.querySelectorAll('.filter-item')
   .forEach(node => {
     const nums = node
-      .querySelector('span > span')
-      .textContent.split('/')
+      .querySelector('.filter-item__img-count')
+      ?.textContent.split('/')
       .map(n => parseInt(n));
-    if (nums.length > 1 && nums[0] === nums[1]) node.style.display = 'none';
+    if (nums && nums.length > 1 && nums[0] === nums[1]) node.style.display = 'none';
   });
+/* inject small css fix */
+const id = 'hide-completed-css-fix';
+let style = document.getElementById(id);
+if (style === null) {
+  style = document.createElement('style');
+  style.id = id;
+  document.getElementsByTagName('head')[0].appendChild(style);
+}
+style.innerHTML = `
+.filter-panel__labels-content { gap: .15rem .1rem; margin-bottom: .15rem; }\n
+.filter-panel__labels-filter-item { margin: 0 !important; }
+`;

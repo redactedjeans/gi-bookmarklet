@@ -11,6 +11,7 @@
       body { font-family: sans-serif; font-size: 1.5rem; padding: 1rem; }
       ul.options { list-style: none; padding-left: 1.5rem; }
       ul.options > li { margin-bottom: 1rem; }
+      ul.options > li.defunct { display: none; }
       .options .desc { font-style: italic; color: #444; line-height: 3rem; }
       .badge {
         font-style: normal;
@@ -29,7 +30,7 @@
   <body>
     <h1>Teyvat Interactive Map Bookmarklets</h1>
     <ul class="options">
-      <li>
+      <li class="defunct">
         <label>
           <input type="checkbox" aria-describedby="cs-desc" data-path="src/compact-sidebar">
           Compact Sidebar
@@ -38,13 +39,12 @@
           Makes the sidebar occupy less horizontal space.
         </div>
       </li>
-      <li>
+      <li class="defunct">
         <label>
           <input type="checkbox" aria-describedby="cr-desc" data-path="src/collapse-resources">
           Collapse Resources
         </label>
         <div id="cr-desc" class="desc">
-          <span class="badge -wip">WIP</span>
           Automatically collapses non-collectible resources in the sidebar.
         </div>
       </li>
@@ -62,12 +62,12 @@
     </ul>
     <div>
       Bookmark the following link:
-      <a id="bookmarklet" href="#">Teyvat Interactive Map Bookmarklet</a>
+      <a id="bookmarklet" href="javascript:(function(){})();">Teyvat Interactive Map Bookmarklet</a>
     </div>
 
     <script>
       // apply listener to concat bookmarklet functions
-      // FIXME: assumes the code has been fetched (otherwise this won't work)
+      // FIXME: assumes the code has already been fetched (otherwise this won't work)
       document.querySelector('.options')
         .addEventListener('change', e => {
           const code = [...document.querySelectorAll('.options input:checked')]
