@@ -25,6 +25,9 @@ These are in no particular order.
   - due to the way the css autoloading works, it was easier to just remove the option to load
   remote css altogether
 
+## Load Preset
+- [ ] make preset customizeable (_c.f._ collapse resources)
+
 ## Collapse Resources
 - [x] load css fix to add arrow indicating section state (open/closed)
 - [x] open/close sections based on a preset
@@ -36,6 +39,9 @@ These are in no particular order.
 - [x] this function breaks the action buttons in the self-created and in-game pin sections
 - [ ] the hover style on titles shouldn't show up when hovering over an action button
 
+## De/Select All
+- [ ] ...
+
 ## Hide Completed
 - [ ] hide empty sections (all items are completed)
   - the naive solution breaks when a region is selected because e.g. all oculi in Liyue might be
@@ -45,11 +51,3 @@ These are in no particular order.
   therefore we can't just hide one element/layer
   - an alternative might be to just deselect items when we hide them (if checked) to make sure they
   don't linger on the map
-
-## Load Preset
-- [ ] make preset customizeable (_c.f._ collapse resources)
-
-## New Functions
-- [ ] show/hide all pins in a section
-  - need to do this without mutating the DOM, but also can't bind event listeners to
-  pseudo-elements
