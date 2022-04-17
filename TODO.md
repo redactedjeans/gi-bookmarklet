@@ -21,7 +21,9 @@ These are in no particular order.
 - [ ] center the map
   - since the sidebar floats (we can see behind it) i can't use the same hack i had before
   - it's also less of an issue than it was before because they changed the min zoom
-- [ ] add option to inline css in the function so it can't be changed remotely
+- [x] add option to inline css in the function so it can't be changed remotely
+  - due to the way the css autoloading works, it was easier to just remove the option to load
+  remote css altogether
 
 ## Collapse Resources
 - [x] load css fix to add arrow indicating section state (open/closed)

@@ -80,38 +80,63 @@
     </footer>
 
     <script>
-      // apply listener to concat bookmarklet functions
+      // function to fetch code/css and return either contents or empty string if error
+      function get(path) {
+        const [_, name, type] = /\/src\/(.*)\/.*\.([a-z]+)/.exec(path);
+        return fetch(`${path}?v=${Date.now()}`)
+          .then(resp => {
+            if (resp.status !== 200) throw null;
+
+            console.log(`fetched ${name} ${type}`);
+            return resp.text();
+          })
+          .catch(_ => '');
+      }
+      // function to generate the appropriate code given some (unformatted) js & css
+      function render({dataset: {path, code, css}}) {
+        const name = path.replace(/^src\//, '');
+        if (css) {
+          css = `
+            const id = '${name}-css-fix';
+            let style = document.getElementById(id);
+            if (style === null) {
+              style = document.createElement('style');
+              style.id = id;
+              document.getElementsByTagName('head')[0].appendChild(style);
+            }
+            style.innerHTML = \`${css}\`;
+          `;
+        }
+        // wrap everything in a block statement to locall${name}y scope vars
+        return `${name.replace(/-/g, '')}:{${code}${css}}`
+          // remove single-line comments
+          .replace(/\/\/.*^/g, '')
+          // remove multi-line comments
+          .replace(/\/\*[\s\S]*?\*\//g, '')
+          // remove newlines
+          .replace(/\r?\n\s*/g, '');
+      }
+
+      // get the code/css for each bookmarklet/function
+      document.querySelectorAll('.options [data-path]')
+        .forEach(plugin => {
+          // uncheck on load to avoid issues where link href doesn't match checked functions
+          plugin.checked = false;
+          // load plugin code + css
+          get(`./${plugin.dataset.path}/main.js`)
+            .then(code => plugin.dataset.code = code);
+          get(`./${plugin.dataset.path}/styles.css`)
+            .then(css => plugin.dataset.css = css);
+        });
+      // apply listener to concat bookmarkleTweakst functions
       // FIXME: assumes the code has already been fetched (otherwise this won't work)
       document.querySelector('.options')
         .addEventListener('change', e => {
           const code = [...document.querySelectorAll('.options input:checked')]
-            // wrap each bookmarklet in a block statement to locally scope vars
-            .map(chk => `{${chk.dataset.code}}`)
+            // format/render each plugin correctly
+            .map(plugin => render(plugin))
             .join('');
           document.getElementById('bookmarklet').href = `javascript:(function(){${code}})();`;
-        });
-
-      // get the code for each bookmarklet/function
-      document.querySelectorAll('.options [data-path]')
-        .forEach(fn => {
-          // uncheck on load to avoid issues where link href doesn't match checked functions
-          fn.checked = false;
-          fetch(`./${fn.dataset.path}/main.js?v=${Date.now()}`)
-            // FIXME: the promise resolves even if the server returns an error (e.g. 404 or 500)
-            .then(resp => resp.text())
-            .then(tpl => {
-              fn.dataset.code = tpl
-                // replace "static" values
-                .replace('{src}', fn.dataset.path)
-                .replace('{url}', window.location.toString().replace(/\/#?$/, ''))
-                // TODO: replace dynamic values (?)
-                // remove newlines
-                .replace(/\r?\n\s*/g, '')
-                // remove comments (since there are no newlines this should work? eh)
-                .replace(/\/\*.*?\*\//g, '');
-              console.log(`fetched ${fn.labels[0].innerText.trim()} bookmarklet`);
-            })
-            .catch(err => console.error(err));
         });
     </script>
   </body>
