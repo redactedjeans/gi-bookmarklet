@@ -40,7 +40,9 @@ These are in no particular order.
 - [ ] the hover style on titles shouldn't show up when hovering over an action button
 
 ## De/Select All
-- [ ] ...
+- [ ] make button usable by keyboad users
+- [ ] using an `img` tag is,,, un-semantic; can we switch to `button`?
+- [ ] better icons
 
 ## Hide Completed
 - [ ] hide empty sections (all items are completed)

@@ -1,0 +1,9 @@
+/* recreate styles of action buttons in pin sections */
+.filter-panel__labels-title-action {
+  position: absolute;
+  top: .04rem;
+  right: 0;
+  height: .24rem;
+  width: .24rem;
+  cursor: pointer;
+}
