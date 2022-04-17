@@ -1,10 +1,17 @@
 /* replace section title margins with padding */
+.filter-panel .filter-panel__labels {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 .filter-panel .filter-panel__labels-title {
   padding: .14rem 0;
   margin: 0 .02rem;
 }
 .filter-panel__labels-title .filter-panel__labels-title-action {
   top: .1rem;
+}
+.filter-panel__labels-item:last-child {
+  border-bottom: none;
 }
 
 /* hide chasm glowing purple thing */
