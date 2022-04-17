@@ -31,28 +31,3 @@ document.querySelectorAll('.filter-panel__labels-item')
       title.click();
     }
   });
-/* inject small css fixes */
-const id = 'collapse-resources-css-fix';
-let style = document.getElementById(id);
-if (style === null) {
-  style = document.createElement('style');
-  style.id = id;
-  document.getElementsByTagName('head')[0].appendChild(style);
-}
-/* TODO: add hover & active styling to css (mouse + keyboard) */
-/* FIXME: this is getting unwieldy; can we load from a file instead? */
-style.innerHTML = `
-.filter-panel__labels-item .filter-panel__labels-title { cursor: pointer; }\n
-.filter-panel__labels-item .filter-panel__labels-title:hover,
-.filter-panel__labels-item .filter-panel__labels-title:focus {
-  text-decoration: underline;
-}\n
-.filter-panel__labels-item .filter-panel__labels-title::before {
-  content: '−';
-  float: left;
-  margin-right: .1rem;
-  font-size: 150%;
-  line-height: .14rem;
-}\n
-.filter-panel__labels-item[data-collapsed] .filter-panel__labels-title::before { content: '+'; }
-`;

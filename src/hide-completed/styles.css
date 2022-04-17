@@ -1,0 +1,8 @@
+/* use flex gaps to having some rows with less items */
+.filter-panel__labels-content {
+  gap: .15rem .1rem;
+  margin-bottom: .15rem;
+}
+.filter-panel__labels-filter-item {
+  margin: 0 !important;
+}
