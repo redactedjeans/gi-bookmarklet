@@ -39,10 +39,12 @@ These are in no particular order.
 - [x] this function breaks the action buttons in the self-created and in-game pin sections
 - [ ] the hover style on titles shouldn't show up when hovering over an action button
 
-## De/Select All
+## Toggle All
 - [ ] make button usable by keyboad users
 - [ ] using an `img` tag is,,, un-semantic; can we switch to `button`?
 - [ ] better icons
+- [ ] sometimes it hangs? it's quite slow in any case
+  - can we solve this by throwing it in a promise
 
 ## Hide Completed
 - [ ] hide empty sections (all items are completed)
