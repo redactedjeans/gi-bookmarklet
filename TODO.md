@@ -18,9 +18,9 @@ These are in no particular order.
 - [ ] bind the bookmarklet code to the "reset" button maybe? idk if this is a good idea
 
 ## CSS Tweaks
-- [ ] center the map
+- [x] center the map
   - since the sidebar floats (we can see behind it) i can't use the same hack i had before
-  - it's also less of an issue than it was before because they changed the min zoom
+  - this no longer really makes sense because of the changes to the min zoom
 - [x] add option to inline css in the function so it can't be changed remotely
   - due to the way the css autoloading works, it was easier to just remove the option to load
   remote css altogether
