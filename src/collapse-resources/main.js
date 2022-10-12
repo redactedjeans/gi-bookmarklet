@@ -2,18 +2,19 @@
 /* TODO: add event listeners for keyboard users as well */
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const collapse = [
-  /\s+[Pp]ins?/, /^Waypoints$/, /^Enemies/, /^Guide$/,
+  /\s+[Pp]ins?/, /\s+(Character|Weapon) Material/, /^Waypoints$/, /^Landmarks$/, /^Enemies/,
   /^Local Specialties$/, /^Animals$/, /^Fishing$/, /^Ores$/, /^Wood$/,
-  /* these three all have some collectibles and some non-collectibles; hide by default */
-  /^Materials$/, /^Investigation$/, /^NPC$/,
+  /* these four all have some collectibles and some non-collectibles; hide by default */
+  /^Guide$/, /^Materials$/, /^Investigation$/, /^NPC$/,
 ];
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
     const title = section.querySelector('.filter-panel__labels-title');
     /* bind the event listener to toggle display value */
     title.onclick = (e => {
-      /* check whether clicking on a pin action and stop if so */
+      /* check whether clicking on a  pin or material action and stop if so */
       if ([...e.target.classList].includes('filter-panel__labels-title-action')) return;
+      if ([...e.target.parentNode.classList].includes('filter-panel__labels-title-action--text')) return;
       /* otherwise toggle section */
       const content = section.querySelector('.filter-panel__labels-content');
       const show = getComputedStyle(content).display === 'none';
