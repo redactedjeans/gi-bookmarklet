@@ -116,7 +116,7 @@
             style.innerHTML = \`${css}\`;
           `;
         }
-        // wrap everything in a block statement to locall${name}y scope vars
+        // wrap everything in a block statement to locally scope vars
         return `${name.replace(/-/g, '')}:{${code}${css}}`
           // remove single-line comments
           .replace(/\/\/.*$/gm, '')
