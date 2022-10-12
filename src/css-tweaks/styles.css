@@ -24,5 +24,8 @@ img.leaflet-marker-icon.leaflet-zoom-hide.leaflet-interactive {
   display: none;
 }
 .mhy-map .leaflet-control-zoomslider {
-  transform: translateX(-.1rem);
+  margin: 0;
+  transform: translate(0);
+  bottom: .2rem;
+  right: .2rem;
 }
