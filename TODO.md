@@ -25,8 +25,17 @@ These are in no particular order.
   - due to the way the css autoloading works, it was easier to just remove the option to load
   remote css altogether
 
-## Load Preset
-- [ ] make preset customizeable (_c.f._ collapse resources)
+## Move Items
+- [ ] create new section if destination isn't found
+- [ ] fix issue where counter in section list still counts items as belonging to former section
+- [ ] make the changes customizeable (_c.f._ collapse resources)
+
+## Hide Completed
+- [x] hide pins of completed sections in the map
+  - this wasn't feasible since all pins are rendered on the same `canvas` element,
+  therefore we can't just hide one element/layer
+  - instead we just deselect items when we hide them (if checked) to make sure they
+  don't linger on the map
 
 ## Collapse Resources
 - [x] load css fix to add arrow indicating section state (open/closed)
@@ -49,9 +58,5 @@ These are in no particular order.
 - [ ] sometimes it hangs? it's quite slow in any case
   - can we solve this by throwing it in a promise
 
-## Hide Completed
-- [x] hide pins of completed sections in the map
-  - this wasn't feasible since all pins are rendered on the same `canvas` element,
-  therefore we can't just hide one element/layer
-  - instead we just deselect items when we hide them (if checked) to make sure they
-  don't linger on the map
+## Load Preset
+- [ ] make preset customizeable (_c.f._ collapse resources)

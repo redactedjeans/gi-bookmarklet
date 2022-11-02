@@ -33,7 +33,7 @@
     <h1>Teyvat Interactive Map Bookmarklets</h1>
 
     <ul class="options">
-      <li class="fn -wip">
+      <li class="fn">
         <label>
           <input type="checkbox" aria-describedby="cf-desc" data-path="src/css-tweaks">
           CSS Tweaks
@@ -44,6 +44,21 @@
       </li>
       <li class="fn -wip">
         <label>
+          <input type="checkbox" aria-describedby="mi-desc" data-path="src/move-items">
+          Move Items
+        </label>
+        <div id="mi-desc" class="desc">
+          Moves items into different categories.
+        </div>
+        <div class="issues">
+          <ul>
+            <li>The counters on the section list still see the item as belonging to its previous section.
+            <li>If a destination section is not found, the item is simply deleted.
+          </ul>
+        </div>
+      </li>
+      <li class="fn">
+        <label>
           <input type="checkbox" aria-describedby="hc-desc" data-path="src/hide-completed">
           Hide Completed
         </label>
@@ -51,7 +66,7 @@
           Removes completed options from the sidebar.
         </div>
       </li>
-      <li class="fn -wip">
+      <li class="fn">
         <label>
           <input type="checkbox" aria-describedby="cr-desc" data-path="src/collapse-resources">
           Collapse Resources
@@ -70,7 +85,7 @@
         </div>
         <div class="issues">Sometimes hangs the browser tab</div>
       </li>
-      <li class="fn -wip">
+      <li class="fn">
         <label>
           <input type="checkbox" aria-describedby="lp-desc" data-path="src/load-preset">
           Load Preset
