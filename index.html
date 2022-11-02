@@ -44,11 +44,11 @@
       </li>
       <li class="fn -wip">
         <label>
-          <input type="checkbox" aria-describedby="lp-desc" data-path="src/load-preset">
-          Load Preset
+          <input type="checkbox" aria-describedby="hc-desc" data-path="src/hide-completed">
+          Hide Completed
         </label>
-        <div id="lp-desc" class="desc">
-          Loads a preset pin configuration.
+        <div id="hc-desc" class="desc">
+          Removes completed options from the sidebar.
         </div>
       </li>
       <li class="fn -wip">
@@ -72,11 +72,11 @@
       </li>
       <li class="fn -wip">
         <label>
-          <input type="checkbox" aria-describedby="hc-desc" data-path="src/hide-completed">
-          Hide Completed
+          <input type="checkbox" aria-describedby="lp-desc" data-path="src/load-preset">
+          Load Preset
         </label>
-        <div id="hc-desc" class="desc">
-          Removes completed options from the sidebar.
+        <div id="lp-desc" class="desc">
+          Loads a preset pin configuration.
         </div>
       </li>
     </ul>
@@ -94,6 +94,7 @@
         const [_, name, type] = /\/src\/(.*)\/.*\.([a-z]+)/.exec(path);
         return fetch(`${path}?v=${Date.now()}`)
           .then(resp => {
+            // if the response isn't OK, fall through to the catch clause below
             if (resp.status !== 200) throw null;
 
             console.log(`fetched ${name} ${type}`);
@@ -137,12 +138,14 @@
           get(`./${plugin.dataset.path}/styles.css`)
             .then(css => plugin.dataset.css = css);
         });
-      // apply listener to concat bookmarkleTweakst functions
+      // apply listener to concat bookmarklet functions
       // FIXME: assumes the code has already been fetched (otherwise this won't work)
       document.querySelector('.options')
         .addEventListener('change', e => {
           const code = [...document.querySelectorAll('.options input:checked')]
             // format/render each plugin correctly
+            // note that they will always be in the order in which the checkboxes appear in the html
+            // this is a feature: we can use that to control their execution order
             .map(plugin => render(plugin))
             .join('');
           document.getElementById('bookmarklet').href = `javascript:(function(){${code}})();`;

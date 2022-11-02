@@ -38,6 +38,9 @@ These are in no particular order.
   - no active styling to match other interactive elements on the map
 - [x] this function breaks the action buttons in the self-created and in-game pin sections
 - [ ] the hover style on titles shouldn't show up when hovering over an action button
+- [ ] automatically collapse empty sections
+  - this is only relevant if we also run hide completed, as it might hide all the resources in a
+  given section
 
 ## Toggle All
 - [ ] make button usable by keyboad users
@@ -47,11 +50,8 @@ These are in no particular order.
   - can we solve this by throwing it in a promise
 
 ## Hide Completed
-- [ ] hide empty sections (all items are completed)
-  - the naive solution breaks when a region is selected because e.g. all oculi in Liyue might be
-  completed while there remain some in other regions
-- [ ] hide pins of completed sections in the map
-  - this might not be easily feasible, since all pins are rendered on the same `canvas` element,
+- [x] hide pins of completed sections in the map
+  - this wasn't feasible since all pins are rendered on the same `canvas` element,
   therefore we can't just hide one element/layer
-  - an alternative might be to just deselect items when we hide them (if checked) to make sure they
+  - instead we just deselect items when we hide them (if checked) to make sure they
   don't linger on the map
