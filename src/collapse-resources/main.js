@@ -2,17 +2,17 @@
 /* TODO: add event listeners for keyboard users as well */
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const collapse = [
-  /\s+[Pp]ins?/, /\s+(Character|Weapon) Material/, /^Waypoints$/, /^Landmarks$/, /^Enemies/,
-  /^Local Specialties$/, /^Animals$/, /^Fishing$/, /^Ores$/, /^Wood$/,
-  /* these four all have some collectibles and some non-collectibles; hide by default */
-  /^Guide$/, /^Materials$/, /^Investigation$/, /^NPC$/,
+  /\s+[Pp]ins?/, /\s+(Character|Weapon) Material/, /^Waypoints$/,
+  /^Local Specialties$/, /^Enemies/, /^Fishing$/,
+  /^Materials$/, /* this contains both collectibles and non-collectibles; hide by default */
+  /^Animals$/, /^Ores$/, /^Wood$/, /^Landmarks$/,
 ];
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
     const title = section.querySelector('.filter-panel__labels-title');
     /* bind the event listener to toggle display value */
     title.onclick = (e => {
-      /* check whether clicking on a  pin or material action and stop if so */
+      /* check whether clicking on a pin or material action and stop if so */
       if ([...e.target.classList].includes('filter-panel__labels-title-action')) return;
       if ([...e.target.parentNode.classList].includes('filter-panel__labels-title-action--text')) return;
       /* otherwise toggle section */
@@ -27,8 +27,11 @@ document.querySelectorAll('.filter-panel__labels-item')
       }
     });
     /* if need be, click on it to toggle */
+    const empty = [...section.querySelector('.filter-panel__labels-content').children]
+      .every(item => item.style.display === 'none');
     const preset = collapse.some(re => re.test(title.textContent));
-    if ((preset && !section.dataset.collapsed) || (!preset && section.dataset.collapsed)) {
+    const shouldClose = empty || preset;
+    if ((shouldClose && !section.dataset.collapsed) || (!shouldClose && section.dataset.collapsed)) {
       title.click();
     }
   });

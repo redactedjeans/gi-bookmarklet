@@ -38,7 +38,7 @@ These are in no particular order.
   - no active styling to match other interactive elements on the map
 - [x] this function breaks the action buttons in the self-created and in-game pin sections
 - [ ] the hover style on titles shouldn't show up when hovering over an action button
-- [ ] automatically collapse empty sections
+- [x] automatically collapse empty sections
   - this is only relevant if we also run hide completed, as it might hide all the resources in a
   given section
 
