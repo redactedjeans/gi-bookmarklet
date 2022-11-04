@@ -10,7 +10,7 @@ const changes = {
   'Weapon': /^Investigation/,
   'Unusual Hilichurl': /^Enemies\s+\(Common\)/,
   'Merchant': /^NPCs/,
-  'Electogranum': /^Guide/,
+  'Electrogranum': /^Guide/,
   'Phase Gate': /^Guide/,
   'Stormstone': /^Guide/,
   'Mysterious Carvings': /^Guide/,
@@ -18,14 +18,14 @@ const changes = {
   'Ruin Brazier': /^Guide/,
   'Campfire/Torch': /^Guide/,
   'Pot': /^Guide/,
-  'Dendroganum': /^Guide/,
+  'Dendrogranum': /^Guide/,
   'Bouncy Mushroom': /^Guide/,
   'Clusterleaf of Cultivation': /^Guide/,
   'Dendro Pile': /^Guide/,
 };
 document.querySelectorAll('.filter-item')
   .forEach(item => {
-    const name = item.querySelector('.filter-item__text').textContent;
+    const name = item.querySelector('.filter-item__text').textContent.replace(/\s/g, ' ');
     if (changes[name] !== undefined) {
       /* find the destination section */
       let [dest] = [...document.querySelectorAll('.filter-panel__labels-item')]
@@ -43,5 +43,6 @@ document.querySelectorAll('.filter-item')
       /* move the item */
       item.remove();
       dest.appendChild(item);
+      console.log(`MOVE ${name} TO ${changes[name]}`);
     }
   });
