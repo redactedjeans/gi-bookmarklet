@@ -26,7 +26,10 @@ These are in no particular order.
   remote css altogether
 
 ## Move Items
-- [ ] create new section if destination isn't found
+- [x] create new section if destination isn't found
+- [ ] also move guide items from Enkanomiya and the Chasm
+- [ ] for some reason this doesn't seem to play well with show/hide all?
+  - some sections don't get the eyeball button...
 - [ ] fix issue where counter in section list still counts items as belonging to former section
 - [ ] make the changes customizeable (_c.f._ collapse resources)
 
