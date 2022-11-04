@@ -43,6 +43,5 @@ document.querySelectorAll('.filter-item')
       /* move the item */
       item.remove();
       dest.appendChild(item);
-      console.log(`MOVE ${name} TO ${changes[name]}`);
     }
   });
