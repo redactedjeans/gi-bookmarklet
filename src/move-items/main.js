@@ -21,8 +21,8 @@ const changes = {
   'Dendrogranum': /^Guide/,
   'Bouncy Mushroom': /^Guide/,
   'Clusterleaf of Cultivation': /^Guide/,
-  'Dendro Pile': /^Guide/,
 };
+let num = 0;
 document.querySelectorAll('.filter-item')
   .forEach(item => {
     const name = item.querySelector('.filter-item__text').textContent.replace(/\s/g, ' ');
@@ -37,6 +37,7 @@ document.querySelectorAll('.filter-item')
         const clone = tpl.cloneNode(true);
         clone.querySelector('.filter-panel__labels-content').replaceChildren();
         clone.querySelector('.filter-panel__labels-title').textContent = `${changes[name]}`.replace(/[^\w\s]/g, '');
+        clone.id = `${clone.id}-clone-${num++}`;
         tpl.parentElement.appendChild(clone);
         dest = clone.querySelector('.filter-panel__labels-content');
       }

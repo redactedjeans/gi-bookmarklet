@@ -28,8 +28,8 @@ These are in no particular order.
 ## Move Items
 - [x] create new section if destination isn't found
 - [ ] also move guide items from Enkanomiya and the Chasm
-- [ ] for some reason this doesn't seem to play well with show/hide all?
-  - some sections don't get the eyeball button...
+- [x] for some reason this doesn't seem to play well with show/hide all?
+  - when cloning sections I wasn't changing the ID, and toggle all assumed no repeat IDs
 - [ ] fix issue where counter in section list still counts items as belonging to former section
 - [ ] make the changes customizeable (_c.f._ collapse resources)
 
