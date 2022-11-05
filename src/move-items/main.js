@@ -3,13 +3,13 @@
 /* FIXME: when we create a new section, we don't get an entry in the section list */
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const changes = {
-  /* World Quests */
+  /* General (Teyvat) World Quests */
   'Artifact': /^Investigation/,
   'Mora': /^Investigation/,
   'Cooking Ingredient': /^Investigation/,
   'Weapon': /^Investigation/,
   'Unusual Hilichurl': /^Enemies\s+\(Common\)/,
-  'Merchant': /^NPCs/,
+  'Merchant': /^Investigation/,
   'Electrogranum': /^Guide/,
   'Phase Gate': /^Guide/,
   'Stormstone': /^Guide/,
@@ -21,6 +21,13 @@ const changes = {
   'Dendrogranum': /^Guide/,
   'Bouncy Mushroom': /^Guide/,
   'Clusterleaf of Cultivation': /^Guide/,
+  /* Enkanomiya World Quests */
+  '"Day-Night" Switching Mechanism': /^Guide/,
+  'Places of Essence Worship': /^Guide/,
+  'Triangular Mechanism': /^Guide/,
+  'Enkanomiya Phase Gate': /^Guide/,
+  /* Chasm World Quests */
+  'Lumenlamp': /^Guide/,
 };
 let num = 0;
 document.querySelectorAll('.filter-item')
