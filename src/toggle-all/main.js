@@ -20,7 +20,7 @@ document.querySelectorAll('.filter-panel__labels-item')
       action = document.createElement('img');
       action.id = id;
     }
-    action.classList = ['filter-panel__labels-title-action'];
+    action.className = 'filter-panel__labels-title-action toggle';
     // 'show all' if there are any unselected items; otherwise 'hide all'
     const status = (section.querySelectorAll('.filter-item:not(.filter-item--selected)').length > 0)
       ? 'show' : 'hide';
