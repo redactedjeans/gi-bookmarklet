@@ -4,12 +4,12 @@
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const changes = {
   /* General (Teyvat) World Quests */
-  'Artifact': /^Investigation/,
-  'Mora': /^Investigation/,
-  'Cooking Ingredient': /^Investigation/,
-  'Weapon': /^Investigation/,
-  'Unusual Hilichurl': /^Enemies\s+\(Common\)/,
-  'Merchant': /^Investigation/,
+  'Artifact': /^Resources/,
+  'Mora': /^Resources/,
+  'Cooking Ingredient': /^Resources/,
+  'Weapon': /^Resources/,
+  'Unusual Hilichurl': /^Enemies/,
+  'Merchant': /^Resources/,
   'Electrogranum': /^Guide/,
   'Phase Gate': /^Guide/,
   'Stormstone': /^Guide/,

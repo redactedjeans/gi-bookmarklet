@@ -2,10 +2,10 @@
 /* TODO: add event listeners for keyboard users as well */
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const collapse = [
-  /\s+[Pp]ins?/, /\s+(Character|Weapon) Material/, /^Waypoints$/, /^Local Specialties$/,
-  /^Enemies/, /^Fishing$/, /^Materials$/, /^Animals$/, /^Ores$/, /^Wood$/, /^Landmarks$/,
+  /\s+[Pp]ins?/, /\s+(Character|Weapon) Material/, /^Waypoints$/, /^Landmarks$/, /^Enemies$/,
+  /^Local Specialties$/, /^Fishing$/, /^Inventory\/Materials$/, /^Animals$/, /^Ores$/, /^Wood$/,
   /* custom-created categories (from move items) */
-  /^Investigation$/, /^NPCs$/, /^Guide$/,
+  /^Resources$/, /^Guide$/,
 ];
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
