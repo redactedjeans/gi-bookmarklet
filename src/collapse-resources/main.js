@@ -5,7 +5,7 @@ const collapse = [
   /\s+[Pp]ins?/, /\s+(Character|Weapon) Material/, /^Waypoints$/, /^Landmarks$/, /^Enemies$/,
   /^Local Specialties$/, /^Fishing$/, /^Inventory\s?\/\s?Materials$/, /^Animals$/, /^Ores$/, /^Wood$/,
   /* custom-created categories (from move items) */
-  /^Resources$/, /^Guide$/,
+  /^Resources$/, /^Navigation$/,
 ];
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
