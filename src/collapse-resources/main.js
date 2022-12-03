@@ -3,7 +3,7 @@
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const collapse = [
   /\s+[Pp]ins?/, /\s+(Character|Weapon) Material/, /^Waypoints$/, /^Landmarks$/, /^Enemies$/,
-  /^Local Specialties$/, /^Fishing$/, /^Inventory\/Materials$/, /^Animals$/, /^Ores$/, /^Wood$/,
+  /^Local Specialties$/, /^Fishing$/, /^Inventory\s?\/\s?Materials$/, /^Animals$/, /^Ores$/, /^Wood$/,
   /* custom-created categories (from move items) */
   /^Resources$/, /^Guide$/,
 ];
