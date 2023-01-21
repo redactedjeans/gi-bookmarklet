@@ -1,3 +1,15 @@
+/* fix clipped descenders in section headers */
+.filter-panel__labels-item .filter-panel__labels-title {
+  padding-top: .12rem;
+  padding-bottom: .12rem;
+}
+.filter-panel__labels-title .filter-panel__labels-title__text {
+  line-height: normal
+}
+.filter-panel__labels-title .filter-panel__labels-title__count {
+  top: -.06rem;
+}
+
 /* hide chasm glowing purple thing */
 img.leaflet-marker-icon.leaflet-zoom-hide.leaflet-interactive {
   display: none;

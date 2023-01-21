@@ -9,7 +9,7 @@
   float: left;
   margin-right: .1rem;
   font-size: 150%;
-  line-height: .14rem;
+  line-height: .2rem;
   color: #d3bc8e;
 }
 .filter-panel__labels-item[data-collapsed] .filter-panel__labels-title::before {
