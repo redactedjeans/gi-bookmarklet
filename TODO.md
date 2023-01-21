@@ -50,10 +50,13 @@ These are in no particular order.
 - [x] load css to add focus, hover, active styling to section titles
   - no active styling to match other interactive elements on the map
 - [x] this function breaks the action buttons in the self-created and in-game pin sections
-- [ ] the hover style on titles shouldn't show up when hovering over an action button
+- [x] the hover style on titles shouldn't show up when hovering over an action button
+  - for now, I just got rid of the hover/focus styles (since they broke on a previous update anyway)
 - [x] automatically collapse empty sections
   - this is only relevant if we also run hide completed, as it might hide all the resources in a
   given section
+- [ ] fix issue where character/weapon material +/- indicator is sometimes wrong
+  - this happens when we add or remove a character/weapon sometimes
 
 ## Toggle All
 - [ ] make button usable by keyboad users

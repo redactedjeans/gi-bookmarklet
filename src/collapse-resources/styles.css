@@ -2,10 +2,6 @@
 .filter-panel__labels-item .filter-panel__labels-title {
   cursor: pointer;
 }
-.filter-panel__labels-item .filter-panel__labels-title:hover,
-.filter-panel__labels-item .filter-panel__labels-title:focus {
-  text-decoration: underline;
-}
 
 /* style ::before pseudo-element to show what action clicking will trigger */
 .filter-panel__labels-item .filter-panel__labels-title::before {
@@ -14,6 +10,7 @@
   margin-right: .1rem;
   font-size: 150%;
   line-height: .14rem;
+  color: #d3bc8e;
 }
 .filter-panel__labels-item[data-collapsed] .filter-panel__labels-title::before {
   content: '+';
