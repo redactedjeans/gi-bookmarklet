@@ -3,7 +3,7 @@
 /* FIXME: when we create a new section, we don't get an entry in the section list */
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const changes = {
-  /* General (Teyvat) World Quests */
+  /* General (Teyvat) Experience */
   'Artifact': /^Resources/,
   'Mora': /^Resources/,
   'Cooking Ingredient': /^Resources/,
@@ -43,7 +43,8 @@ document.querySelectorAll('.filter-item')
         const tpl = item.parentElement.parentElement;
         const clone = tpl.cloneNode(true);
         clone.querySelector('.filter-panel__labels-content').replaceChildren();
-        clone.querySelector('.filter-panel__labels-title').textContent = `${changes[name]}`.replace(/[^\w\s]/g, '');
+        clone.querySelector('.filter-panel__labels-title__text')
+          .textContent = `${changes[name]}`.replace(/[^\w\s]/g, '');
         clone.id = `${clone.id}-clone-${num++}`;
         tpl.parentElement.appendChild(clone);
         dest = clone.querySelector('.filter-panel__labels-content');
