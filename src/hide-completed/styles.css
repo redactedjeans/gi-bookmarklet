@@ -6,11 +6,18 @@
 .filter-panel__labels-filter-item {
   margin: 0 !important;
 }
-
 /* ascension-specific tweaks */
 .filter-panel__labels-item--card .filter-panel__labels-ascension {
   padding: .1rem;
 }
 .filter-panel__labels-ascension .filter-panel__labels-content {
   margin-bottom: unset;
+}
+
+/* add some text to empty sections */
+.filter-panel__labels-content:empty::before {
+  content: 'Nothing to see here.';
+  padding-left: .1rem;
+  font-style: italic;
+  color: hsla(39,34%,89%,.5);
 }

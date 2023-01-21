@@ -5,5 +5,5 @@ document.querySelectorAll('.filter-item')
       .querySelector('.filter-item__img-count')
       ?.textContent.split('/')
       .map(n => parseInt(n));
-    if (nums && nums.length > 1 && nums[0] === nums[1]) node.style.display = 'none';
-  });
+    if (nums && nums.length > 1 && nums[0] === nums[1]) node.remove();
+});
