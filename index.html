@@ -22,7 +22,8 @@
         border: 2px solid var(--color);
         padding: 0 .3rem;
       }
-      .options .fn.-wip .desc::before { content: 'WIP'; --color: #922; }
+      .options .fn.-wip .desc::before { content: 'WIP'; --color: #229; }
+      .options .fn.-deprecated .desc::before { content: 'DEP'; --color: #922 ; }
       .options .desc { font-style: italic; color: #444; line-height: 3rem; }
       .issues { font-size: 1.2rem; text-transform: uppercase; color: #444; }
       .issues::before { content: 'Known Issues: '; }
@@ -85,7 +86,7 @@
         </div>
         <div class="issues">Sometimes hangs the browser tab</div>
       </li>
-      <li class="fn">
+      <li class="fn -deprecated">
         <label>
           <input type="checkbox" aria-describedby="lp-desc" data-path="src/load-preset">
           Load Preset
@@ -100,7 +101,7 @@
       <a id="bookmarklet" href="javascript:(function(){})();">Teyvat Interactive Map Bookmarklet</a>
     </div>
     <footer class="version">
-      Last updated 2022-12-02 (v3.2)
+      Last updated 2023-01-20 (v3.4)
     </footer>
 
     <script>

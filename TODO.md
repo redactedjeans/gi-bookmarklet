@@ -61,6 +61,3 @@ These are in no particular order.
 - [ ] better icons
 - [ ] sometimes it hangs? it's quite slow in any case
   - can we solve this by throwing it in a promise
-
-## Load Preset
-- [ ] make preset customizeable (_c.f._ collapse resources)
