@@ -5,7 +5,6 @@
 .filter-panel__labels-title:hover .filter-panel__labels-title__text {
   text-decoration: underline;
 }
-
 /* style ::before pseudo-element to show what action clicking will trigger */
 .filter-panel__labels-item .filter-panel__labels-title::before {
   content: '−';

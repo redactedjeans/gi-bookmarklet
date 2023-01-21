@@ -16,9 +16,19 @@
 }
 
 /* add some text to empty sections */
-.filter-panel__labels-content:empty::before {
+/* this uses [data-collapsed] to be compatible with collapse-resources */
+.filter-panel__labels-content:empty::before,
+[id="-3"]:not(.filter-panel__labels-item--card):not([data-collapsed])::after,
+[id="-4"]:not(.filter-panel__labels-item--card):not([data-collapsed])::after {
   content: 'Nothing to see here.';
-  padding-left: .1rem;
   font-style: italic;
-  color: hsla(39,34%,89%,.5);
+  color: hsla(39, 34%, 89%, .5);
+  margin: 0 auto;
+}
+/* ascension-card specific styling */
+[id="-3"]:not(.filter-panel__labels-item--card):not([data-collapsed])::after,
+[id="-4"]:not(.filter-panel__labels-item--card):not([data-collapsed])::after {
+  display: block;
+  width: fit-content;
+  margin: 0 auto .15rem;
 }
