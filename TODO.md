@@ -33,9 +33,7 @@ These are in no particular order.
 - [ ] make preset customizeable
 - [ ] make this work for keyboard users as well (currently only responsive to `click` event)
   - just checked and afaict the whole map just,,, does not work with keyboards, so
-- [ ] css to add focus, hover, active styling to section titles
-  - no active styling to match other interactive elements on the map
-- [ ] when character/weapon materials secion is collapsed, show bottom-border 
+- [ ] when hovering over action buttons, the hover styling shouldn't be applied
 - [ ] fix issue where character/weapon material +/- indicator is sometimes wrong
   - this happens when we add a tracked character/weapon sometimes while the section is collapsed, as
   it starts out open but the collapsed status doesn't change

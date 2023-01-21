@@ -26,8 +26,9 @@
       .options .fn.-deprecated .desc::before { content: 'DEP'; --color: #922; }
       .options .fn.-sep { border-top: 1px solid #ccc; padding-top: 2rem; margin-top: 2rem; }
       .options .desc { font-style: italic; color: #444; line-height: 3rem; }
-      .issues { font-size: 1.2rem; text-transform: uppercase; color: #444; }
-      .issues::before { content: 'Known Issues: '; }
+      .issues { display: flex; font-size: 1.2rem; text-transform: uppercase; color: #444; }
+      .issues::before { content: 'Known Issues: '; flex-shrink: 0; padding-right: .5rem; }
+      .issues ul { padding-left: 1rem; list-style: circle; }
       .version { margin-top: auto; text-align: right; font-style: italic; }
 
     </style>
