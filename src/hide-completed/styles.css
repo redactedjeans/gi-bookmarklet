@@ -1,8 +1,16 @@
-/* use flex gaps to having some rows with less items */
+/* use flex gaps to handle some rows with fewer items */
 .filter-panel__labels-content {
   gap: .15rem .1rem;
   margin-bottom: .15rem;
 }
 .filter-panel__labels-filter-item {
   margin: 0 !important;
+}
+
+/* ascension-specific tweaks */
+.filter-panel__labels-item--card .filter-panel__labels-ascension {
+  padding: .1rem;
+}
+.filter-panel__labels-ascension .filter-panel__labels-content {
+  margin-bottom: unset;
 }
