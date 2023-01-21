@@ -38,3 +38,5 @@ These are in no particular order.
 - [ ] better icons
 - [ ] sometimes it hangs? it's quite slow in any case
   - can we solve this by throwing it in a promise
+- [ ] the icons can go out of sync if the pins are toggled via other means (e.g. Reset button)
+  - it's smart enough to re-sync the next time the button is clicked, but still
