@@ -1,7 +1,7 @@
 /* recreate styles of action buttons in pin sections */
 .filter-panel__labels-title-action {
   position: absolute;
-  top: .09rem;
+  top: .1rem;
   right: 0;
   height: .24rem;
   width: .24rem;
