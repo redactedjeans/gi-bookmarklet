@@ -3,7 +3,8 @@
   gap: .15rem .1rem;
   margin-bottom: .15rem;
 }
-.filter-panel__labels-filter-item {
+.filter-panel__labels-filter-item,
+.filter-panel__labels-content--empty {
   margin: 0 !important;
 }
 /* ascension-specific tweaks */
