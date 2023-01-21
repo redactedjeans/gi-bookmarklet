@@ -13,7 +13,6 @@ These are in no particular order.
 - [ ] defer execution until map has rendered (using `MutationObserver`?)
   - strictly speaking this isn't necessary for CSS Tweaks, but doesn't hurt much
 - [ ] reload plugins when the region is changed (e.g. to Enkanomiya)
-- [ ] add a shared utility for injecting css (inline or link)
 - [ ] bind the bookmarklet code to the "reset" button maybe? idk if this is a good idea
 
 ## CSS Tweaks
@@ -23,11 +22,6 @@ These are in no particular order.
 - [ ] fix issue where counter in section list still counts items as belonging to former section
 - [ ] when a new section is created, it doesn't get an entry in the side list
 - [ ] make the changes customizeable (_c.f._ collapse resources)
-
-## Hide Completed
-  therefore we can't just hide one element/layer
-  - instead we just deselect items when we hide them (if checked) to make sure they
-  don't linger on the map
 
 ## Collapse Resources
 - [ ] make preset customizeable

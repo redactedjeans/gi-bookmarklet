@@ -5,5 +5,8 @@ document.querySelectorAll('.filter-item')
       .querySelector('.filter-item__img-count')
       ?.textContent.split('/')
       .map(n => parseInt(n));
-    if (nums && nums.length > 1 && nums[0] === nums[1]) node.remove();
+    if (nums && nums.length > 1 && nums[0] === nums[1]) {
+      if ([...node.classList].includes('filter-item--selected')) node.click();
+      node.remove();
+    }
 });
