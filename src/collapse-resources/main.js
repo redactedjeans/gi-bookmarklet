@@ -36,3 +36,22 @@ document.querySelectorAll('.filter-panel__labels-item')
       title.click();
     }
   });
+
+/* watch the ascension cards and make sure the collapsed status stays synced */
+const cardIds = ['-3', '-4'];
+const x = Math.random();
+console.log('random number is:', x);
+const observer = new MutationObserver(l => {
+  const rec = l.filter(i => i.attributeName === 'class')[0];
+  if (rec) {
+    const hasCard = [...rec.target.classList].includes('filter-panel__labels-item--card');
+    const isCollapsed = rec.target.dataset.collapsed;
+    if ((hasCard && isCollapsed) || (!hasCard && !isCollapsed)) {
+      console.log(x); rec.target.firstChild.click();
+    }
+  }
+});
+cardIds.forEach(id => {
+  const node = document.getElementById(id);
+  observer.observe(node, { attributes: true });
+});

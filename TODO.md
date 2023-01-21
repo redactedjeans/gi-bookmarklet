@@ -28,9 +28,8 @@ These are in no particular order.
 - [ ] make this work for keyboard users as well (currently only responsive to `click` event)
   - just checked and afaict the whole map just,,, does not work with keyboards, so
 - [ ] when hovering over action buttons, the hover styling shouldn't be applied
-- [ ] fix issue where character/weapon material +/- indicator is sometimes wrong
-  - this happens when we add a tracked character/weapon sometimes while the section is collapsed, as
-  it starts out open but the collapsed status doesn't change
+- [ ] unlike (I think?) every other bit of code here, the `MutationObserver` doesn't update if we
+  re-run the bookmarklet
 
 ## Toggle All
 - [ ] make button usable by keyboad users
