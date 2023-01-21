@@ -11,9 +11,13 @@ These are in no particular order.
 
 ## All functions
 - [ ] defer execution until map has rendered (using `MutationObserver`?)
-  - strictly speaking this isn't necessary to CSS Tweaks, but doesn't hurt much
+  - strictly speaking this isn't necessary for CSS Tweaks, but doesn't hurt much
+- [ ] reload plugins when the region is changed (e.g. to Enkanomiya)
 - [ ] add a shared utility for injecting css (inline or link)
 - [ ] bind the bookmarklet code to the "reset" button maybe? idk if this is a good idea
+
+## CSS Tweaks
+- [ ] fix header on screen sizes < 900px
 
 ## Move Items
 - [ ] fix issue where counter in section list still counts items as belonging to former section

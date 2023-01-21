@@ -10,7 +10,7 @@
       html, body, h1 { margin: 0; }
       body { font-family: sans-serif; font-size: 1.5rem; min-height: 100vh; }
       .container { display: flex; flex-direction: column; padding: 1rem; }
-      .options { list-style: none; padding-left: 1.5rem; }
+      .options { list-style: none; padding-left: 1.5rem; width: fit-content; }
       .options .fn { margin-bottom: 1rem; }
       .options .fn .desc::before {
         font-style: normal;
@@ -23,11 +23,13 @@
         padding: 0 .3rem;
       }
       .options .fn.-wip .desc::before { content: 'WIP'; --color: #229; }
-      .options .fn.-deprecated .desc::before { content: 'DEP'; --color: #922 ; }
+      .options .fn.-deprecated .desc::before { content: 'DEP'; --color: #922; }
+      .options .fn.-sep { border-top: 1px solid #ccc; padding-top: 2rem; margin-top: 2rem; }
       .options .desc { font-style: italic; color: #444; line-height: 3rem; }
       .issues { font-size: 1.2rem; text-transform: uppercase; color: #444; }
       .issues::before { content: 'Known Issues: '; }
       .version { margin-top: auto; text-align: right; font-style: italic; }
+
     </style>
   </head>
   <body class="container">
@@ -92,7 +94,7 @@
           (note that this problem is shared by the built-in 'Reset' button).
         </div>
       </li>
-      <li class="fn -deprecated">
+      <li class="fn -deprecated -sep">
         <label>
           <input type="checkbox" aria-describedby="lp-desc" data-path="src/load-preset">
           Load Preset
@@ -107,7 +109,7 @@
       <a id="bookmarklet" href="javascript:(function(){})();">Teyvat Interactive Map Bookmarklet</a>
     </div>
     <footer class="version">
-      Last updated 2023-01-20 (v3.4)
+      Last updated 2023-01-21 (v3.4)
     </footer>
 
     <script>
