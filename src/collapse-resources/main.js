@@ -13,8 +13,8 @@ document.querySelectorAll('.filter-panel__labels-item')
     /* bind the event listener to toggle display value */
     title.onclick = (e => {
       /* check whether clicking on a pin or material action and stop if so */
-      if ([...e.target.classList].includes('filter-panel__labels-title-action')) return;
-      if ([...e.target.parentNode.classList].includes('filter-panel__labels-title-action--text')) return;
+      if (e.target.closest('.filter-panel__labels-title-action')) return;
+      if (e.target.closest('.filter-panel__labels-title-action--text')) return;
       /* otherwise toggle section */
       const content = section.querySelector('.filter-panel__labels-ascension') 
         ?? section.querySelector('.filter-panel__labels-content');
