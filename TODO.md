@@ -34,7 +34,6 @@ These are in no particular order.
 ## Toggle All
 - [ ] make button usable by keyboad users
 - [ ] using an `img` tag is,,, un-semantic; can we switch to `button`?
-- [ ] better icons
 - [ ] sometimes it hangs? it's quite slow in any case
   - can we solve this by throwing it in a promise
 - [ ] the icons can go out of sync if the pins are toggled via other means (e.g. Reset button)
