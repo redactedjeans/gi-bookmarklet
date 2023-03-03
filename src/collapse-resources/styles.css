@@ -1,6 +1,7 @@
 /* style title like an interactive element */
 .filter-panel__labels-item .filter-panel__labels-title {
   cursor: pointer;
+  justify-content: start;
 }
 .filter-panel__labels-title:hover .filter-panel__labels-title__text {
   text-decoration: underline;

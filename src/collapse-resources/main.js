@@ -2,10 +2,10 @@
 /* TODO: add event listeners for keyboard users as well */
 /* TODO: once dynamic value replacement is implemented make this list customizeable? */
 const collapse = [
-  /\s+[Pp]ins?/, /^(Character|Weapon) Material/, /^Waypoints$/, /^Landmarks$/, /^Enemies$/,
-  /^Local Specialties$/, /^Fishing$/, /^Inventory\s?\/\s?Materials$/, /^Animals$/, /^Ores$/, /^Wood$/,
+  /\s+[Pp]ins?/, /^(Character|Weapon) Material/, /^Waypoints/, /^Landmarks/, /^Enemies/,
+  /^Local Specialties/, /^Fishing/, /^Inventory\s?\/\s?Materials/, /^Animals/, /^Ores/, /^Wood/,
   /* custom-created categories (from move items) */
-  /^Resources$/, /^Navigation$/,
+  /^Resources/, /^Navigation/,
 ];
 document.querySelectorAll('.filter-panel__labels-item')
   .forEach(section => {
@@ -32,6 +32,11 @@ document.querySelectorAll('.filter-panel__labels-item')
       .every(item => item.style.display === 'none');
     const preset = collapse.some(re => re.test(title.textContent));
     const shouldClose = empty || preset;
+    console.log(
+      `[${title.textContent}]`, empty, preset,
+      shouldClose ? 'should close' : 'shouldn\'t close',
+      section.dataset.collapsed ? 'is closed' : 'isn\'t closed'
+    );
     if ((shouldClose && !section.dataset.collapsed) || (!shouldClose && section.dataset.collapsed)) {
       title.click();
     }
@@ -39,15 +44,13 @@ document.querySelectorAll('.filter-panel__labels-item')
 
 /* watch the ascension cards and make sure the collapsed status stays synced */
 const cardIds = ['-3', '-4'];
-const x = Math.random();
-console.log('random number is:', x);
 const observer = new MutationObserver(l => {
   const rec = l.filter(i => i.attributeName === 'class')[0];
   if (rec) {
     const hasCard = [...rec.target.classList].includes('filter-panel__labels-item--card');
     const isCollapsed = rec.target.dataset.collapsed;
     if ((hasCard && isCollapsed) || (!hasCard && !isCollapsed)) {
-      console.log(x); rec.target.firstChild.click();
+      rec.target.firstChild.click();
     }
   }
 });
