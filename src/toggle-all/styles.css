@@ -13,6 +13,14 @@
 .filter-panel__labels-title-action--text {
   margin-right: .34rem;
 }
+.filter-ext-attr {
+  margin-right: .3rem;
+}
 .filter-panel__labels-title-action--text > span {
   margin-right: 0 !important;
+}
+
+/* fix title padding being incompatible with css-tweaks */
+.filter-panel__labels-title.filter-panel__labels-title--official {
+  padding-top: .12rem;
 }

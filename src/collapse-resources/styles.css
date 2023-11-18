@@ -1,7 +1,15 @@
-/* style title like an interactive element */
+/* style title like an interactive element and fix padding */
 .filter-panel__labels-item .filter-panel__labels-title {
   cursor: pointer;
   justify-content: start;
+  padding-bottom: .16rem;
+}
+/* compat fix for toggle-all (irrelevant when css-tweaks is also applied) */
+.filter-panel__labels-item .filter-panel__labels-title:has(.toggle) {
+  padding-bottom: .12rem;
+}
+.filter-panel__labels-item .filter-panel__labels-title .filter-ext-attr {
+  margin-left: auto;
 }
 .filter-panel__labels-title:hover .filter-panel__labels-title__text {
   text-decoration: underline;
