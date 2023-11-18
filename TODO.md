@@ -32,7 +32,7 @@ These are in no particular order.
   re-run the bookmarklet
 
 ## Toggle All
-- [ ] make button usable by keyboad users
+- [ ] make button usable by keyboard users
 - [ ] using an `img` tag is,,, un-semantic; can we switch to `button`?
 - [ ] sometimes it hangs? it's quite slow in any case
   - can we solve this by throwing it in a promise
