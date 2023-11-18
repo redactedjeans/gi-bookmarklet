@@ -8,6 +8,7 @@ const changes = {
   'Mora': /^Resources/,
   'Cooking Ingredient': /^Resources/,
   'Weapon': /^Resources/,
+  'Ores': /^Resources/,
   'Unusual Hilichurl': /^Enemies/,
   'Merchant': /^Resources/,
   'Electrogranum': /^Navigation/,
