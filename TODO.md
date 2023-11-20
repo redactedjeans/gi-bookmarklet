@@ -17,6 +17,7 @@ These are in no particular order.
 
 ## CSS Tweaks
 - [ ] fix header on screen sizes < 900px
+- [ ] move the 'level select' interface down (c.f. the zoom slider) in underground mode
 
 ## Move Items
 - [ ] fix issue where counter in section list still counts items as belonging to former section
@@ -38,3 +39,4 @@ These are in no particular order.
   - can we solve this by throwing it in a promise
 - [ ] the icons can go out of sync if the pins are toggled via other means (e.g. Reset button)
   - it's smart enough to re-sync the next time the button is clicked, but still
+- [ ] does not work at all in underground mode
