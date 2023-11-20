@@ -22,6 +22,11 @@ const changes = {
   'Dendrogranum': /^Navigation/,
   'Bouncy Mushroom': /^Navigation/,
   'Clusterleaf of Cultivation': /^Navigation/,
+  'Xenochromatic Hunter\'s Ray': /^Navigation/,
+  'Xenochromatic Armored Crab': /^Navigation/,
+  'Xenochromatic Blubberbeast': /^Navigation/,
+  'Xenochromatic Ball Octopus': /^Navigation/,
+  'Xenochromatic Jellyfish': /^Navigation/,
   /* Enkanomiya World Quests */
   '"Day-Night" Switching Mechanism': /^Navigation/,
   'Places of Essence Worship': /^Navigation/,
