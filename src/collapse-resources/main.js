@@ -32,11 +32,6 @@ document.querySelectorAll('.filter-panel__labels-item')
       .every(item => item.style.display === 'none');
     const preset = collapse.some(re => re.test(title.textContent));
     const shouldClose = empty || preset;
-    console.log(
-      `[${title.textContent}]`, empty, preset,
-      shouldClose ? 'should close' : 'shouldn\'t close',
-      section.dataset.collapsed ? 'is closed' : 'isn\'t closed'
-    );
     if ((shouldClose && !section.dataset.collapsed) || (!shouldClose && section.dataset.collapsed)) {
       title.click();
     }
@@ -56,5 +51,5 @@ const observer = new MutationObserver(l => {
 });
 cardIds.forEach(id => {
   const node = document.getElementById(id);
-  observer.observe(node, { attributes: true });
+  if (node) observer.observe(node, { attributes: true });
 });
